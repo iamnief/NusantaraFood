@@ -16,15 +16,18 @@ import net.coobird.thumbnailator.Thumbnails;
  * @author User
  */
 public class RequestImage {
-    public static Image requesting(String resource, int x, int y){
-        Image img = null;
+    public static BufferedImage requesting(String resource, int x, int y){
+        BufferedImage thumbnail = null;
+//        Image img = null;
         try {
             File f = new File(resource);
-            BufferedImage thumbnail = Thumbnails.of(f).size(x, y).asBufferedImage();
-            img = thumbnail;
+            thumbnail = Thumbnails.of(f).size(x, y).asBufferedImage();
+//            BufferedImage thumbnail = Thumbnails.of(f).size(x, y).asBufferedImage();
+//            img = thumbnail;
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return img;
+//        return img;
+        return thumbnail;
     }
 }
