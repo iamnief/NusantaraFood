@@ -5,8 +5,10 @@
  */
 package forms;
 
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.Color;
+import java.awt.Point;
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import nusantarafood.RequestImage;
 
@@ -20,14 +22,16 @@ public class Indonesia extends javax.swing.JFrame {
      * Creates new form Indonesia
      */
     public Indonesia() {
-//        backgroundPanel = RequestImage.requesting("C:\\Users\\User\\Pictures\\Poltek Negeri Jakarta V1.png",1021,400);
-        backgroundPanel = RequestImage.requesting("C:\\Users\\User\\Documents\\"
-                + "NetBeansProjects\\NusantaraFood\\src\\images\\petaindo2.png",1021,400);
+        backgroundPanel = RequestImage.requesting("src\\images\\peta indo new.png",1072,603);
+        island = new HashMap<Color,Integer>();
+        island.put(new Color(252,74,26), 1);
+        island.put(new Color(3,117,180), 2);
+        island.put(new Color(227,114,34), 3);
+        island.put(new Color(247,183,51), 4);
+        island.put(new Color(74,189,172), 5);
+        island.put(new Color(7,136,155), 6);
         initComponents();
-//        backgroundPanel2 = requestImage("C:\\Users\\User\\Documents\\"
-//                + "NetBeansProjects\\NusantaraFood\\src\\images\\foods.png");
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,68 +41,44 @@ public class Indonesia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel(){
-            //    protected void paintComponent(Graphics g) {
-                //        super.paintComponent(g);
-                //        g.drawImage(backgroundPanel, 0, 0, this);
-                //    }
-        };
-        indo = new javax.swing.JButton();
-        indo.setUI(new ImageButtonUI("C:\\Users\\User\\Documents\\"
-            + "NetBeansProjects\\NusantaraFood\\src\\images\\petaindo2.png", 510, 200));
-    jButton1 = new javax.swing.JButton();
-    jButton1.setUI(new ImageButtonUI("C:\\Users\\User\\Documents\\"
-        + "NetBeansProjects\\NusantaraFood\\src\\images\\petaindo2.png", 510, 200));
-jButton1.hide();
+        jButton1 = new javax.swing.JButton();
+        jButton1.setUI(new ImageButtonUI("src\\images\\peta indo new.png",1072,603));
 
-setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-setTitle("Indonesia");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Indonesia");
 
-indo.addActionListener(new java.awt.event.ActionListener() {
-    public void actionPerformed(java.awt.event.ActionEvent evt) {
-        indoActionPerformed(evt);
-    }
-    });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-    jPanel1.setLayout(jPanel1Layout);
-    jPanel1Layout.setHorizontalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addComponent(indo)
-            .addGap(0, 0, Short.MAX_VALUE))
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGap(343, 343, 343)
-            .addComponent(jButton1)
-            .addContainerGap(645, Short.MAX_VALUE))
-    );
-    jPanel1Layout.setVerticalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addComponent(indo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(128, 128, 128)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(210, Short.MAX_VALUE))
-    );
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1050, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 581, Short.MAX_VALUE))
+        );
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-    );
-
-    pack();
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void indoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indoActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "You clicked on Indonesia");
-    }//GEN-LAST:event_indoActionPerformed
+        Point pt = jButton1.getMousePosition();
+        Color target = new java.awt.Color(backgroundPanel.getRGB(pt.x, pt.y));
+//        JOptionPane.showMessageDialog(null, "Warna : "+target+"\nPoint : "+pt);
+        if(island.get(target)!=null) JOptionPane.showMessageDialog(null, island.get(target));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,11 +116,9 @@ indo.addActionListener(new java.awt.event.ActionListener() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton indo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    private Image backgroundPanel = null;
-    private Image backgroundPanel2 = null;
+    private BufferedImage backgroundPanel = null;
+        HashMap <Color,Integer> island;
 }
