@@ -21,8 +21,7 @@ public class Welcome extends javax.swing.JFrame {
     
     public Welcome() {
         initComponents();
-        backgroundPanel = RequestImage.requesting("C:\\Users\\User\\Documents\\"
-                + "NetBeansProjects\\NusantaraFood\\src\\images\\rempah.jpg"
+        backgroundPanel = RequestImage.requesting("src\\images\\rempah.jpg"
                 , 740, 540);
     }
 
@@ -124,6 +123,7 @@ public class Welcome extends javax.swing.JFrame {
     private void jLabel_lanjutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_lanjutMouseClicked
         // TODO add your handling code here:
         dispose();
+        new Indonesia().setVisible(true);
     }//GEN-LAST:event_jLabel_lanjutMouseClicked
 
     /**
