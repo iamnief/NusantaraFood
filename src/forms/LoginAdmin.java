@@ -35,8 +35,7 @@ public class LoginAdmin extends javax.swing.JFrame {
 //        cdb = new ConnectingDB();
 //        conn = cdb.getConnection();
         conn = DatabaseUtilities.getConnection();
-        backgroundPanel = RequestImage.requesting("C:\\Users\\User\\Documents\\NetBeansProjects\\"
-                + "NusantaraFood\\src\\images\\foods.jpg", 680, 400);
+        backgroundPanel = RequestImage.requesting("src\\images\\foods.jpg", 680, 400);
     }
 
     /**
