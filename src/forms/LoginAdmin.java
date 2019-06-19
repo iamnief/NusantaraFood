@@ -34,7 +34,6 @@ public class LoginAdmin extends javax.swing.JFrame {
         initComponents();
 //        cdb = new ConnectingDB();
 //        conn = cdb.getConnection();
-        conn = DatabaseUtilities.getConnection();
         backgroundPanel = RequestImage.requesting("src\\images\\foods.jpg", 680, 400);
     }
 
@@ -152,12 +151,14 @@ public class LoginAdmin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
+            conn = DatabaseUtilities.getConnection();
             String sql =  "select * from admin where username = ? and password = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1, textField_username.getText());
@@ -166,6 +167,8 @@ public class LoginAdmin extends javax.swing.JFrame {
             
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Login success");
+                dispose();
+                new ManipulationData().setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Username or password is not correct");
             }
