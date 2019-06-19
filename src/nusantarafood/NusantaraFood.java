@@ -5,6 +5,8 @@
  */
 package nusantarafood;
 
+import forms.Welcome;
+
 /**
  *
  * @author User
@@ -16,6 +18,7 @@ public class NusantaraFood {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        new Welcome().setVisible(true);
     }
     
 }
