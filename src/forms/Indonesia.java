@@ -23,13 +23,13 @@ public class Indonesia extends javax.swing.JFrame {
      */
     public Indonesia() {
         backgroundPanel = RequestImage.requesting("src\\images\\peta indo new.png",1072,603);
-        island = new HashMap<Color,String>();
-        island.put(new Color(252,74,26), "Sumatera");
-        island.put(new Color(3,117,180), "Jawa");
-        island.put(new Color(227,114,34), "Kalimantan");
-        island.put(new Color(247,183,51), "Sulawesi");
-        island.put(new Color(74,189,172), "Bali dan Nusa Tenggara");
-        island.put(new Color(7,136,155), "Maluku dan Papua");
+        island = new HashMap<Color,Integer>();
+        island.put(new Color(252,74,26), 1);
+        island.put(new Color(3,117,180), 2);
+        island.put(new Color(227,114,34), 3);
+        island.put(new Color(247,183,51), 4);
+        island.put(new Color(74,189,172), 5);
+        island.put(new Color(7,136,155), 6);
         initComponents();
     }
     /**
@@ -77,7 +77,36 @@ public class Indonesia extends javax.swing.JFrame {
         Point pt = jButton1.getMousePosition();
         Color target = new java.awt.Color(backgroundPanel.getRGB(pt.x, pt.y));
 //        JOptionPane.showMessageDialog(null, "Warna : "+target+"\nPoint : "+pt);
-        if(island.get(target)!=null) JOptionPane.showMessageDialog(null, island.get(target));
+//        if(island.get(target)!=null) JOptionPane.showMessageDialog(null, island.get(target));
+        if(island.get(target)!=null){
+            dispose();
+            switch(island.get(target)){
+                case 1: {
+                    new Sumatera().setVisible(true);
+                    break;
+                }
+                case 2: {
+                    new Sumatera().setVisible(true);
+                    break;
+                }
+                case 3: {
+                    new Sumatera().setVisible(true);
+                    break;
+                }
+                case 4: {
+                    new Sumatera().setVisible(true);
+                    break;
+                }
+                case 5: {
+                    new BaliNT().setVisible(true);
+                    break;
+                }
+                case 6: {
+                    new MalukuPapua().setVisible(true);
+                    break;
+                }
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -120,5 +149,5 @@ public class Indonesia extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private BufferedImage backgroundPanel = null;
-        HashMap <Color,String> island;
+        HashMap <Color,Integer> island;
 }
