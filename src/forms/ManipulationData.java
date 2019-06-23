@@ -84,8 +84,6 @@ public class ManipulationData extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(textPane_steps);
 
-        label_foodImage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
-
         jDesktopPane1.setLayer(label_foodImage, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
