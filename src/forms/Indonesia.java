@@ -90,7 +90,7 @@ public class Indonesia extends javax.swing.JFrame {
                     break;
                 }
                 case 3: {
-                    new Sumatera().setVisible(true);
+                    new Kalimantan().setVisible(true);
                     break;
                 }
                 case 4: {

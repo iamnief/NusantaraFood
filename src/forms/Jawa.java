@@ -25,8 +25,8 @@ public class Jawa extends javax.swing.JFrame {
         imageResource = "src\\images\\peta\\jawa.png";
         background = RequestImage.requesting(imageResource, 600, 600);
         provinces = new HashMap<Color,Integer>();
-        provinces.put(new Color(0,255,255),11);
-        provinces.put(new Color(153,51,255),12);
+        provinces.put(new Color(153,51,255),11);
+        provinces.put(new Color(0,255,255),12);
         provinces.put(new Color(102,204,153),13);
         provinces.put(new Color(255,204,0),14);
         provinces.put(new Color(255,255,0),15);

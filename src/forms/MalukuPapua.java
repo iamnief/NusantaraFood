@@ -33,8 +33,8 @@ public class MalukuPapua extends javax.swing.JFrame {
         imageResource = "src\\images\\peta\\maluku papua.png";
         background = RequestImage.requesting(imageResource,600, 600);
         provinces = new HashMap<Color,Integer>();
-        provinces.put(new Color(0,153,51), 31);
-        provinces.put(new Color(51,204,255), 32);
+        provinces.put(new Color(51,204,255), 31);
+        provinces.put(new Color(0,153,51), 32);
         provinces.put(new Color(255,204,102), 33);
         provinces.put(new Color(255,102,0), 34);
         initComponents();

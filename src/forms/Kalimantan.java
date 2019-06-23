@@ -25,6 +25,11 @@ public class Kalimantan extends javax.swing.JFrame {
         imageResource = "src\\images\\peta\\kalimantan.png";
         background = RequestImage.requesting(imageResource, 600, 600);
         provinces = new HashMap<Color,Integer>();
+        provinces.put(new Color(74,189,172), 20);
+        provinces.put(new Color(0,54,99), 21);
+        provinces.put(new Color(68,14,98), 22);
+        provinces.put(new Color(27,20,100), 23);
+        provinces.put(new Color(123,0,70), 24);
         initComponents();
     }
 
@@ -37,8 +42,8 @@ public class Kalimantan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1.setUI(new ImageButtonUI(imageResource,600,600));
         jButton1 = new javax.swing.JButton();
+        jButton1.setUI(new ImageButtonUI(imageResource,600,600));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,24 +59,25 @@ public class Kalimantan extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 600, Short.MAX_VALUE))
+                .addGap(0, 535, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 600, Short.MAX_VALUE))
+                .addGap(0, 548, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Point pt = jButton1.getMousePosition();
         Color target = new java.awt.Color(background.getRGB(pt.x, pt.y));
-        JOptionPane.showMessageDialog(null, "warna : " +target+"\nPoint : " +pt);
-        
+//        JOptionPane.showMessageDialog(null, "warna : " +target+"\nPoint : " +pt);
+        if(provinces.get(target)!=null) JOptionPane.showMessageDialog(null,provinces.get(target));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -114,6 +120,6 @@ public class Kalimantan extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private BufferedImage background = null;
     private String imageResource;
-    HashMap <Color, Integer> provinces;
+    private HashMap <Color, Integer> provinces;
     
 }
