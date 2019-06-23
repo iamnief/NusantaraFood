@@ -86,7 +86,7 @@ public class Indonesia extends javax.swing.JFrame {
                     break;
                 }
                 case 2: {
-                    new Sumatera().setVisible(true);
+                    new Jawa().setVisible(true);
                     break;
                 }
                 case 3: {
@@ -94,7 +94,7 @@ public class Indonesia extends javax.swing.JFrame {
                     break;
                 }
                 case 4: {
-                    new Sumatera().setVisible(true);
+                    new Sulawesi().setVisible(true);
                     break;
                 }
                 case 5: {

@@ -59,6 +59,12 @@ public class Welcome extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_loginMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_loginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_loginMouseExited(evt);
+            }
         });
 
         jLabel_lanjut.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -67,6 +73,12 @@ public class Welcome extends javax.swing.JFrame {
         jLabel_lanjut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_lanjutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_lanjutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_lanjutMouseExited(evt);
             }
         });
 
@@ -126,6 +138,26 @@ public class Welcome extends javax.swing.JFrame {
         dispose();
         new Indonesia().setVisible(true);
     }//GEN-LAST:event_jLabel_lanjutMouseClicked
+
+    private void jLabel_lanjutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_lanjutMouseEntered
+        // TODO add your handling code here:
+        jLabel_lanjut.setForeground(jLabel_lanjut.getForeground().brighter());
+    }//GEN-LAST:event_jLabel_lanjutMouseEntered
+
+    private void jLabel_lanjutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_lanjutMouseExited
+        // TODO add your handling code here:
+        jLabel_lanjut.setForeground(jLabel_lanjut.getForeground().darker());
+    }//GEN-LAST:event_jLabel_lanjutMouseExited
+
+    private void jLabel_loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_loginMouseEntered
+        // TODO add your handling code here:
+        jLabel_login.setForeground(jLabel_login.getForeground().brighter());
+    }//GEN-LAST:event_jLabel_loginMouseEntered
+
+    private void jLabel_loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_loginMouseExited
+        // TODO add your handling code here:
+        jLabel_login.setForeground(jLabel_login.getForeground().darker());
+    }//GEN-LAST:event_jLabel_loginMouseExited
 
     /**
      * @param args the command line arguments
