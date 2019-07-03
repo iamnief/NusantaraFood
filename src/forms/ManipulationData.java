@@ -56,11 +56,7 @@ public class ManipulationData extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         comboBox_province = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textPane_ingredients = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        textPane_steps = new javax.swing.JTextPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         label_foodImage = new javax.swing.JLabel();
         textField_imagePath = new javax.swing.JTextField();
@@ -72,29 +68,29 @@ public class ManipulationData extends javax.swing.JFrame {
         btn_delete = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        textArea_steps = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        textArea_ingredients = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        textField_foodID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Makanan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 100, 200))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Makanan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(204, 204, 0))); // NOI18N
 
         jLabel1.setText("Nama Makanan");
 
         jLabel2.setText("Asal Makanan");
 
-        jLabel3.setLabelFor(textPane_ingredients);
+        jLabel3.setLabelFor(textArea_ingredients);
         jLabel3.setText("Bahan");
 
         comboBox_province.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nanggroe Aceh Darussalam", "Sumatera Utara", "Sumatera Barat", "Riau", "Kepulauan Riau", "Jambi", "Bengkulu", "Sumatera Selatan", "Bangka Belitung", "Lampung", "Banten", "DKI Jakarta", "Jawa Barat", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Bali", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Utara", "Sulawesi Barat", "Sulawesi Tengah", "Sulawesi Selatan", "Sulawesi Tenggara", "Sulawesi Utara", "Gorontalo", "Maluku", "Maluku Utara", "Papua Barat", "Papua" }));
         comboBox_province.setSelectedIndex(-1);
 
-        textPane_ingredients.setMaximumSize(new java.awt.Dimension(296, 370));
-        jScrollPane1.setViewportView(textPane_ingredients);
-
         jLabel4.setText("Cara Masak");
-
-        textPane_steps.setMaximumSize(new java.awt.Dimension(296, 370));
-        jScrollPane2.setViewportView(textPane_steps);
 
         jDesktopPane1.setLayer(label_foodImage, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -109,7 +105,7 @@ public class ManipulationData extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_foodImage, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -170,6 +166,18 @@ public class ManipulationData extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable1);
 
+        textArea_steps.setColumns(20);
+        textArea_steps.setRows(5);
+        jScrollPane4.setViewportView(textArea_steps);
+
+        textArea_ingredients.setColumns(20);
+        textArea_ingredients.setRows(5);
+        jScrollPane5.setViewportView(textArea_ingredients);
+
+        jLabel6.setText("ID Makanan");
+
+        textField_foodID.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -177,42 +185,44 @@ public class ManipulationData extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textField_imagePath, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_uploadImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBox_province, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
+                                .addComponent(textField_foodID, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(textField_foodName))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btn_save)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btn_update)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btn_delete)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btn_clear))
-                                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_uploadImage, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(comboBox_province, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(textField_imagePath)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
+                                .addComponent(jLabel4))
+                            .addComponent(textField_foodName, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_save)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_update)
                         .addGap(18, 18, 18)
+                        .addComponent(btn_delete)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_clear)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,53 +230,53 @@ public class ManipulationData extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(textField_foodName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addGap(4, 4, 4)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(comboBox_province, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(textField_imagePath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(5, 5, 5)
-                                .addComponent(btn_uploadImage)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(textField_foodID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(textField_foodName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(comboBox_province, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_delete)
-                            .addComponent(btn_save)
-                            .addComponent(btn_update)
-                            .addComponent(btn_clear)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                .addContainerGap())
+                            .addComponent(jLabel5)
+                            .addComponent(textField_imagePath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_uploadImage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_save)
+                        .addComponent(btn_update)
+                        .addComponent(btn_delete)
+                        .addComponent(btn_clear))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -282,7 +292,7 @@ public class ManipulationData extends javax.swing.JFrame {
         textField_imagePath.setText(filename);
         try {
             File image = new File(filename);
-            BufferedImage thumbnail = Thumbnails.of(image).size(300, 180).asBufferedImage();
+            BufferedImage thumbnail = Thumbnails.of(image).size(300, 225).asBufferedImage();
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             ImageIO.write(thumbnail, "jpeg", os);
             InputStream is = new ByteArrayInputStream(os.toByteArray());
@@ -308,8 +318,8 @@ public class ManipulationData extends javax.swing.JFrame {
             pst = conn.prepareStatement(sql);
             pst.setString(1, textField_foodName.getText());
             pst.setInt(2, comboBox_province.getSelectedIndex()+1);
-            pst.setString(3, textPane_ingredients.getText());
-            pst.setString(4, textPane_steps.getText());
+            pst.setString(3, textArea_ingredients.getText());
+            pst.setString(4, textArea_steps.getText());
             pst.setBytes(5, foodimage);
             
             pst.execute();
@@ -331,10 +341,11 @@ public class ManipulationData extends javax.swing.JFrame {
 
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
+        textField_foodID.setText("");
         textField_foodName.setText("");
         textField_imagePath.setText("");
-        textPane_ingredients.setText("");
-        textPane_steps.setText("");
+        textArea_ingredients.setText("");
+        textArea_steps.setText("");
         label_foodImage.setIcon(null);
         comboBox_province.setSelectedIndex(-1);
     }//GEN-LAST:event_btn_clearActionPerformed
@@ -342,7 +353,8 @@ public class ManipulationData extends javax.swing.JFrame {
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         // TODO add your handling code here:
         try{
-        String sql = "UPDATE  makanan set nama_makanan=? , id_provinsi=?, bahan=?, cara_masak=?,gambar_makanan=? ";
+        String sql = "UPDATE  makanan set nama_makanan=?, id_provinsi=?, bahan=?,"
+                + " cara_masak=?, gambar_makanan=? where id_makanan = ?";
         pst = conn.prepareStatement(sql);
         System.out.println("Success to create prepare");
         
@@ -350,9 +362,10 @@ public class ManipulationData extends javax.swing.JFrame {
        pst = conn.prepareStatement(sql);
             pst.setString(1, textField_foodName.getText());
             pst.setInt(2, comboBox_province.getSelectedIndex()+1);
-            pst.setString(3, textPane_ingredients.getText());
-            pst.setString(4, textPane_steps.getText());
+            pst.setString(3, textArea_ingredients.getText());
+            pst.setString(4, textArea_steps.getText());
             pst.setBytes(5, foodimage);
+            pst.setString(6, textField_foodID.getText());
             
             
             pst.execute();
@@ -374,40 +387,36 @@ public class ManipulationData extends javax.swing.JFrame {
     private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
         // TODO add your handling code here:
         if(textField_foodName.getText().equals("")){
-        JOptionPane.showMessageDialog(null, "Please select data to delete");
+            JOptionPane.showMessageDialog(null, "Please select data to delete");
         }
         else{
             int p =JOptionPane.showConfirmDialog(null, "Do you really want to delete", "Delete",JOptionPane.YES_NO_OPTION);
-        
-        if(p == 0){
-    try{
-        String sql = "DELETE from makanan WHERE id_provinsi =?;";
-        pst = conn.prepareStatement(sql);
-        System.out.println("Success to create prepare");
-        
-        
-        pst.setInt(1, comboBox_province.getSelectedIndex()+1);
-        pst.execute();
-    }
-    catch(SQLException ex){
-        System.out.println("Failed to create prepare :"+ex.getMessage());
-    }
-    finally{
-        if(pst !=null){
-            try{
-                pst.close();
-                System.out.println("Success to close prepare");
+            if(p == 0){
+                try{
+                    String sql = "DELETE from makanan WHERE id_provinsi =?;";
+                    pst = conn.prepareStatement(sql);
+                    System.out.println("Success to create prepare");
+
+                    pst.setInt(1, comboBox_province.getSelectedIndex()+1);
+                    pst.execute();
+                }
+                catch(SQLException ex){
+                    System.out.println("Failed to create prepare :"+ex.getMessage());
+                }
+                finally{
+                    if(pst !=null){
+                        try{
+                            readData();
+                            pst.close();
+                            System.out.println("Success to close prepare");
+                        }
+                        catch(SQLException ex){
+                            System.out.println("Fail to close prepare "+ex.getMessage());
+                        }
+                    }
+                }
             }
-            catch(SQLException ex){
-                System.out.println("Fail to close prepare");
-            }
-            
         }
-    }
-    
-    }                                         
-        }
-        readData();
     }//GEN-LAST:event_btn_deleteActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -416,35 +425,38 @@ public class ManipulationData extends javax.swing.JFrame {
         String idClickedTable = (jTable1.getModel().getValueAt(row, 0).toString());
         
         try {
-            String sql = "select m.nama_makanan, p.nama_provinsi, m.bahan, m.cara_masak, m.gambar_makanan"
+            String sql = "select m.id_makanan, m.nama_makanan, p.nama_provinsi, m.bahan, m.cara_masak, m.gambar_makanan"
                     + " from makanan m, provinsi p where m.id_provinsi=p.id_provinsi and id_makanan = " + idClickedTable;
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             
             if (rs.next()) {
+                String strid = rs.getString("id_makanan");
+                textField_foodID.setText(strid);
                 String strname = rs.getString("nama_makanan");
                 textField_foodName.setText(strname);
                 String stringre = rs.getString("bahan");
-                textPane_ingredients.setText(stringre);
+                textArea_ingredients.setText(stringre);
                 String strstep = rs.getString("cara_masak");
-                textPane_steps.setText(strstep);
+                textArea_steps.setText(strstep);
                 String strasal = rs.getString("nama_provinsi");
                 comboBox_province.setSelectedItem(strasal);
 
                 byte[] imagedata = rs.getBytes("gambar_makanan");
+                foodimage = imagedata;
                 viewimage = new ImageIcon(imagedata);
                 label_foodImage.setIcon(viewimage);
             }
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e.getMessage()+" 1");
         }
         finally {
             try {
                 rs.close();
                 pst.close();
             } catch (Exception e) {
-                JOptionPane.showConfirmDialog(null, e);
+                JOptionPane.showConfirmDialog(null, e.getMessage()+" 2");
             }
         }
       
@@ -520,16 +532,18 @@ public class ManipulationData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel label_foodImage;
+    private javax.swing.JTextArea textArea_ingredients;
+    private javax.swing.JTextArea textArea_steps;
+    private javax.swing.JTextField textField_foodID;
     private javax.swing.JTextField textField_foodName;
     private javax.swing.JTextField textField_imagePath;
-    private javax.swing.JTextPane textPane_ingredients;
-    private javax.swing.JTextPane textPane_steps;
     // End of variables declaration//GEN-END:variables
 
     String filename;
