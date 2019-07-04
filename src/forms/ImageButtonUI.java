@@ -7,12 +7,9 @@ package forms;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonListener;
 import javax.swing.plaf.basic.BasicButtonUI;
-import net.coobird.thumbnailator.Thumbnails;
 
 public class ImageButtonUI extends BasicButtonUI {
     protected final Color fc;
@@ -22,10 +19,10 @@ public class ImageButtonUI extends BasicButtonUI {
     private final int imgY;
     protected final int tolerance = 1;
 
-    public ImageButtonUI(String resource, int width, int height){
-        imgX = width;
-        imgY = height;
-        img = requesting(resource, imgX, imgY);
+    public ImageButtonUI(BufferedImage bi){
+        imgX = bi.getWidth();
+        imgY = bi.getHeight();
+        img = bi;
         fc = new Color(img.getRGB(imgX-1, imgY-1));
     }
 
@@ -119,15 +116,5 @@ public class ImageButtonUI extends BasicButtonUI {
 
     protected final void paintFocusAndRollover(Graphics2D g2, Component c) {
         g2.drawImage(img, 0, 0, c);
-    }
-    public static BufferedImage requesting(String resource, int x, int y){
-        BufferedImage thumbnail = null;
-        try {
-            File f = new File(resource);
-            thumbnail = Thumbnails.of(f).size(x, y).asBufferedImage();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        return thumbnail;
     }
 }
