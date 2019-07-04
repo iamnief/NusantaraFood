@@ -91,9 +91,13 @@ public class Region extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         btn_back = new javax.swing.JButton();
 
+        jPanel2.setBackground(new java.awt.Color(234, 217, 171));
         jPanel2.setLayout(new java.awt.GridLayout(0, 3, 2, 0));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(234, 217, 17));
+
+        jPanel1.setBackground(new java.awt.Color(239, 221, 171));
 
         jLabel1.setFont(new java.awt.Font("Javanese Text", 0, 36)); // NOI18N
         jLabel1.setText("Papua");
@@ -117,6 +121,7 @@ public class Region extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jScrollPane2.setBackground(new java.awt.Color(234, 217, 17));
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         btn_back.setText("Back");
