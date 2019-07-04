@@ -37,7 +37,7 @@ public class Region extends javax.swing.JFrame {
 //        d = new Dimension(900, 675);
         addFoodLabels();
         initComponents();
-        System.out.println(foodLabel.get(0).size());
+//        System.out.println(foodLabel.get(0).size());
     }
 
     public void setPanel2Dim(int rows){
