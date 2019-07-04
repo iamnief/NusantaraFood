@@ -21,9 +21,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="11" green="d9" red="ea" type="rgb"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -44,24 +41,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="248" max="32767" attributes="0"/>
-              <Component id="btn_back" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Component id="jScrollPane2" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_back" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="62" max="32767" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="456" max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -69,26 +54,34 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ab" green="dd" red="ef" type="rgb"/>
+          <Color blue="ab" green="d9" red="ea" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="470" max="32767" attributes="0"/>
+                  <EmptySpace pref="718" max="32767" attributes="0"/>
+                  <Component id="btn_back" min="-2" max="-2" attributes="0"/>
               </Group>
+              <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="33" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btn_back" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="94" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="457" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -105,28 +98,25 @@
             <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="jLabel1.setText(island[regionID-1]);"/>
           </AuxValues>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <Properties>
+            <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="for (int i=0; i&lt;foodLabel.size(); i++){&#xd;&#xa;    JLabel food = foodLabel.get(i);&#xd;&#xa;    food.setText(&quot;&quot;);&#xd;&#xa;    jPanel2.add(food);&#xd;&#xa;}&#xd;&#xa;jScrollPane2.setViewportView(jPanel2);"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+        </Container>
+        <Component class="javax.swing.JButton" name="btn_back">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Back"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_backActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="11" green="d9" red="ea" type="rgb"/>
-        </Property>
-        <Property name="verticalScrollBarPolicy" type="int" value="22"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePre" type="java.lang.String" value="for (int i=0; i&lt;foodLabel.size(); i++){&#xd;&#xa;    JLabel food = foodLabel.get(i);&#xd;&#xa;    food.setText(&quot;&quot;);&#xd;&#xa;    jPanel2.add(food);&#xd;&#xa;}&#xd;&#xa;jScrollPane2.setViewportView(jPanel2);"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-    </Container>
-    <Component class="javax.swing.JButton" name="btn_back">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Back"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_backActionPerformed"/>
-      </Events>
-    </Component>
   </SubComponents>
 </Form>
