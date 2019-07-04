@@ -5,6 +5,13 @@
  */
 package forms;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import nusantarafood.DatabaseUtilities;
+
 /**
  *
  * @author User
@@ -14,8 +21,49 @@ public class Makanan extends javax.swing.JFrame {
     /**
      * Creates new form Makanan
      */
-    public Makanan() {
+    Connection conn = DatabaseUtilities.getConnection();
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    
+    public Makanan(int foodID) {
+        this.foodID = foodID;
         initComponents();
+        readData();
+    }
+
+    private void readData(){
+        try {
+            String sql = "select m.id_makanan, m.nama_makanan, p.nama_provinsi, m.bahan, m.cara_masak, m.gambar_makanan"
+                    + " from makanan m, provinsi p where m.id_provinsi=p.id_provinsi and id_makanan = " + foodID;
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String strname = rs.getString("nama_makanan");
+                label_foodName.setText(strname);
+                String stringre = rs.getString("bahan");
+                textArea_bahan.setText(stringre);
+                String strstep = rs.getString("cara_masak");
+                textArea_caraMasak.setText(strstep);
+                String strasal = rs.getString("nama_provinsi");
+                label_foodProvince.setText(strasal);
+
+                byte[] imagedata = rs.getBytes("gambar_makanan");
+                viewImage = new ImageIcon(imagedata);
+                label_foodImage.setIcon(viewImage);
+            }
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage()+" 1");
+        }
+        finally {
+            try {
+                rs.close();
+                pst.close();
+            } catch (Exception e) {
+                JOptionPane.showConfirmDialog(null, e.getMessage()+" 2");
+            }
+        }
     }
 
     /**
@@ -37,11 +85,14 @@ public class Makanan extends javax.swing.JFrame {
         textArea_caraMasak = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         label_foodImage.setText("jLabel1");
 
+        label_foodName.setFont(new java.awt.Font("Javanese Text", 0, 24)); // NOI18N
         label_foodName.setText("jLabel2");
 
+        label_foodProvince.setFont(new java.awt.Font("Javanese Text", 0, 24)); // NOI18N
         label_foodProvince.setText("jLabel3");
 
         btn_back.setText("Back");
@@ -61,41 +112,36 @@ public class Makanan extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_foodImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addComponent(label_foodImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(label_foodProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label_foodName, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label_foodName)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(81, 81, 81))))))
+                                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label_foodProvince)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(label_foodName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(label_foodProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(label_foodImage, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_foodName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label_foodProvince))
+                    .addComponent(label_foodImage, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
@@ -103,6 +149,7 @@ public class Makanan extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -135,7 +182,7 @@ public class Makanan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Makanan().setVisible(true);
+                new Makanan(80).setVisible(true);
             }
         });
     }
@@ -150,4 +197,7 @@ public class Makanan extends javax.swing.JFrame {
     private javax.swing.JTextArea textArea_bahan;
     private javax.swing.JTextArea textArea_caraMasak;
     // End of variables declaration//GEN-END:variables
+
+    private int foodID;
+    private ImageIcon viewImage;
 }

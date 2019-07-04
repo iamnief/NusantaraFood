@@ -12,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -74,6 +72,19 @@ public class Region extends javax.swing.JFrame {
             }
         }
     }
+    
+    private void addFoodLabelListener(){
+        for(int i=0; i<foodLabel.size(); i++){
+            JLabel food = foodLabel.get(i);
+            food.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+//                    JOptionPane.showMessageDialog(null, foodID.get(food));
+                    dispose();
+                    new Makanan(foodID.get(food)).setVisible(true);
+                }
+            });
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,10 +102,12 @@ public class Region extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         btn_back = new javax.swing.JButton();
 
+        addFoodLabelListener();
         jPanel2.setBackground(new java.awt.Color(234, 217, 171));
         jPanel2.setLayout(new java.awt.GridLayout(0, 3, 2, 0));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(234, 217, 171));
 
