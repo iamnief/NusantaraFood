@@ -6,6 +6,7 @@
 package forms;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class Indonesia extends javax.swing.JFrame {
      * Creates new form Indonesia
      */
     public Indonesia() {
-        backgroundPanel = RequestImage.requesting("src\\images\\peta indo new.png",1072,603);
+        button_img = RequestImage.requesting("src\\images\\peta indo new.png",1072,603);
         island = new HashMap<Color,Integer>();
         island.put(new Color(252,74,26), 1);
         island.put(new Color(3,117,180), 2);
@@ -30,6 +31,7 @@ public class Indonesia extends javax.swing.JFrame {
         island.put(new Color(247,183,51), 4);
         island.put(new Color(74,189,172), 5);
         island.put(new Color(7,136,155), 6);
+        backgroundPanel = RequestImage.requesting("src\\images\\background.jpg", 1072, 603);
         initComponents();
     }
     /**
@@ -41,8 +43,16 @@ public class Indonesia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(backgroundPanel, 0, 0, this);
+            }
+        };
         jButton1 = new javax.swing.JButton();
         jButton1.setUI(new ImageButtonUI("src\\images\\peta indo new.png",1072,603));
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Indonesia");
@@ -53,19 +63,41 @@ public class Indonesia extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addContainerGap(1017, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(12, 12, 12)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(546, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1050, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 581, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -75,39 +107,20 @@ public class Indonesia extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Point pt = jButton1.getMousePosition();
-        Color target = new java.awt.Color(backgroundPanel.getRGB(pt.x, pt.y));
+        Color target = new java.awt.Color(button_img.getRGB(pt.x, pt.y));
 //        JOptionPane.showMessageDialog(null, "Warna : "+target+"\nPoint : "+pt);
 //        if(island.get(target)!=null) JOptionPane.showMessageDialog(null, island.get(target));
         if(island.get(target)!=null){
             dispose();
-            switch(island.get(target)){
-                case 1: {
-                    new Sumatera().setVisible(true);
-                    break;
-                }
-                case 2: {
-                    new Jawa().setVisible(true);
-                    break;
-                }
-                case 3: {
-                    new Kalimantan().setVisible(true);
-                    break;
-                }
-                case 4: {
-                    new Sulawesi().setVisible(true);
-                    break;
-                }
-                case 5: {
-                    new BaliNT().setVisible(true);
-                    break;
-                }
-                case 6: {
-                    new MalukuPapua().setVisible(true);
-                    break;
-                }
-            }
+            new Region(island.get(target)).setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new Welcome().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,22 +131,6 @@ public class Indonesia extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Indonesia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Indonesia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Indonesia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Indonesia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
         //</editor-fold>
 
         /* Create and display the form */
@@ -146,8 +143,11 @@ public class Indonesia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
+    private BufferedImage button_img = null;
     private BufferedImage backgroundPanel = null;
         HashMap <Color,Integer> island;
 }

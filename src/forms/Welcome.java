@@ -21,8 +21,8 @@ public class Welcome extends javax.swing.JFrame {
     
     public Welcome() {
         initComponents();
-        backgroundPanel = RequestImage.requesting("src\\images\\rempah.jpg"
-                , 740, 540);
+        backgroundPanel = RequestImage.requesting("src\\images\\background3.jpg"
+                , 900, 600);
     }
 
     /**
@@ -43,7 +43,6 @@ public class Welcome extends javax.swing.JFrame {
         };
         jLabel_login = new javax.swing.JLabel();
         jLabel_lanjut = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nusantara Food");
@@ -52,7 +51,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(661, 396));
 
-        jLabel_login.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel_login.setFont(new java.awt.Font("Arial", 1, 26)); // NOI18N
         jLabel_login.setForeground(new java.awt.Color(0, 153, 153));
         jLabel_login.setText("Login");
         jLabel_login.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,7 +66,7 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
 
-        jLabel_lanjut.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel_lanjut.setFont(new java.awt.Font("Arial", 1, 26)); // NOI18N
         jLabel_lanjut.setForeground(new java.awt.Color(0, 153, 153));
         jLabel_lanjut.setText("Lanjut");
         jLabel_lanjut.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,43 +81,36 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Monotype Corsiva", 1, 72)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome!");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(252, 252, 252)
+                .addGap(306, 306, 306)
                 .addComponent(jLabel_lanjut)
-                .addGap(95, 95, 95)
+                .addGap(122, 122, 122)
                 .addComponent(jLabel_login)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(353, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_lanjut)
                     .addComponent(jLabel_login))
-                .addGap(163, 163, 163))
+                .addGap(217, 217, 217))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -195,7 +187,6 @@ public class Welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_lanjut;
     private javax.swing.JLabel jLabel_login;
     private javax.swing.JPanel jPanel1;

@@ -29,14 +29,14 @@ public class LoginAdmin extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
-//    ConnectingDB cdb;
     public LoginAdmin() {
         initComponents();
-//        cdb = new ConnectingDB();
-//        conn = cdb.getConnection();
-        backgroundPanel = RequestImage.requesting("src\\images\\batikbgr.jpg", 600, 400);
+        backgroundPanel = RequestImage.requesting("src\\images\\test.jpg", 600, 400);
     }
-
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,6 +75,11 @@ public class LoginAdmin extends javax.swing.JFrame {
         });
 
         button_cancel.setText("Cancel");
+        button_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cancelActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Passsword");
 
@@ -157,7 +162,8 @@ public class LoginAdmin extends javax.swing.JFrame {
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Login success");
                 dispose();
-                new ManipulationData().setVisible(true);
+                new ManipulationData(this).setVisible(true);
+//                new ManipulationData().setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Username or password is not correct");
             }
@@ -165,6 +171,12 @@ public class LoginAdmin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_button_loginActionPerformed
+
+    private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new Welcome().setVisible(true);
+    }//GEN-LAST:event_button_cancelActionPerformed
 
     /**
      * @param args the command line arguments

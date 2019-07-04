@@ -37,6 +37,7 @@ public class Region extends javax.swing.JFrame {
 //        d = new Dimension(900, 675);
         addFoodLabels();
         initComponents();
+        System.out.println(foodLabel.get(0).size());
     }
 
     public void setPanel2Dim(int rows){
@@ -90,11 +91,14 @@ public class Region extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         btn_back = new javax.swing.JButton();
 
-        jPanel2.setLayout(new java.awt.GridLayout(0, 3));
+        jPanel2.setLayout(new java.awt.GridLayout(0, 3, 2, 0));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("gambar pulau");
+        jLabel1.setFont(new java.awt.Font("Javanese Text", 0, 36)); // NOI18N
+        jLabel1.setText("Papua");
+
+        jLabel1.setText(island[regionID-1]);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,15 +106,15 @@ public class Region extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(470, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -135,7 +139,7 @@ public class Region extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 715, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
                 .addComponent(btn_back))
             .addComponent(jScrollPane2)
         );
@@ -145,7 +149,7 @@ public class Region extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_back))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -189,7 +193,7 @@ public class Region extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Region(6).setVisible(true);
+                new Region(1).setVisible(true);
             }
         });
     }
@@ -207,4 +211,5 @@ public class Region extends javax.swing.JFrame {
     private ImageIcon viewimage = null;
     private Dimension d;
     private int regionID;
+    private String[] island = {"Sumatera","Jawa","Kalimantan","Sulawesi","Bali dan Nusa Tenggara","Maluku dan Papua"};
 }
