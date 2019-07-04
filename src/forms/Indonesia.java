@@ -23,7 +23,7 @@ public class Indonesia extends javax.swing.JFrame {
      * Creates new form Indonesia
      */
     public Indonesia() {
-        button_img = RequestImage.requesting("src\\images\\peta indo new.png",1072,603);
+        button_img = RequestImage.requesting("src\\images\\peta indo new.png",1072,426);
         island = new HashMap<Color,Integer>();
         island.put(new Color(252,74,26), 1);
         island.put(new Color(3,117,180), 2);
@@ -51,7 +51,7 @@ public class Indonesia extends javax.swing.JFrame {
             }
         };
         jButton1 = new javax.swing.JButton();
-        jButton1.setUI(new ImageButtonUI("src\\images\\peta indo new.png",1072,603));
+        jButton1.setUI(new ImageButtonUI(button_img));
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,17 +76,17 @@ public class Indonesia extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(1017, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jButton2)
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(546, Short.MAX_VALUE))
+                .addContainerGap(540, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
