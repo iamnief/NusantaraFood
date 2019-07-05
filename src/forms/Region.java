@@ -51,7 +51,7 @@ public class Region extends javax.swing.JFrame {
 
     private void addFoodLabels(){
         foodLabel = new ArrayList<JLabel>();
-        foodID = new HashMap<JLabel,Makanan>();
+        foodAtribute = new HashMap<JLabel,Makanan>();
         try {
             String sql = "SELECT m.id_makanan, m.nama_makanan, p.nama_provinsi, m.gambar_makanan "
                     + "from makanan m, provinsi p, regional r "
@@ -70,7 +70,7 @@ public class Region extends javax.swing.JFrame {
                 String name = rs.getString("nama_makanan");
                 String asal = rs.getString("nama_provinsi");
                 Makanan m = new Makanan(id, name, asal);
-                foodID.put(food,m);
+                foodAtribute.put(food,m);
                 rows++;
             }
             setPanel2Dim(rows);
@@ -94,7 +94,7 @@ public class Region extends javax.swing.JFrame {
     private void addFoodLabelListener(){
         for(int i=0; i<foodLabel.size(); i++){
             JLabel food = foodLabel.get(i);
-            Makanan mk = foodID.get(food);
+            Makanan mk = foodAtribute.get(food);
             food.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
 //                    JOptionPane.showMessageDialog(null, foodID.get(food));
@@ -128,13 +128,13 @@ public class Region extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        btn_back = new javax.swing.JButton();
         label_foodName = new javax.swing.JLabel();
         label_foodProvince = new javax.swing.JLabel();
+        btn_back = new javax.swing.JButton();
 
         addFoodLabelListener();
         jPanel2.setBackground(new java.awt.Color(234, 217, 171));
-        jPanel2.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
+        jPanel2.setLayout(new java.awt.GridLayout(0, 3, 15, 15));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -145,14 +145,8 @@ public class Region extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Papua");
 
+        jScrollPane2.setBorder(null);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        btn_back.setText("Back");
-        btn_back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_backActionPerformed(evt);
-            }
-        });
 
         label_foodName.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         label_foodName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -161,6 +155,13 @@ public class Region extends javax.swing.JFrame {
         label_foodProvince.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         label_foodProvince.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_foodProvince.setText("Provinsi");
+
+        btn_back.setText("Back");
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_backActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText(island[regionID-1]);
         for (int i=0; i<foodLabel.size(); i++){
@@ -174,12 +175,15 @@ public class Region extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(label_foodName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_back))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 972, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_back)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label_foodName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(label_foodProvince, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -264,7 +268,7 @@ public class Region extends javax.swing.JFrame {
 
     private ArrayList<JLabel> foodLabel;
     private JFrame prev;
-    private HashMap<JLabel,Makanan> foodID;
+    private HashMap<JLabel,Makanan> foodAtribute;
     private ImageIcon viewimage = null;
     private Dimension d;
     private int regionID;
