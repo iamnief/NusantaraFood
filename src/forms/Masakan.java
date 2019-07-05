@@ -6,6 +6,7 @@
 package forms;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import nusantarafood.DatabaseUtilities;
+import nusantarafood.RequestImage;
+import java.awt.Graphics;
 
 /**
  *
@@ -33,6 +36,7 @@ public class Masakan extends javax.swing.JFrame {
         readData();
         textArea_bahan.setForeground(Color.BLACK);
         textArea_caraMasak.setForeground(Color.BLACK);
+        backgroundPanel = RequestImage.requesting("src\\images\\background5.jpg",889,708);
     }
     
     public void setPrev(JFrame prev){
@@ -83,7 +87,13 @@ public class Masakan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(backgroundPanel, 0, 0, this);
+            }
+        };
         btn_back = new javax.swing.JButton();
         label_foodName = new javax.swing.JLabel();
         label_foodProvince = new javax.swing.JLabel();
@@ -270,4 +280,5 @@ public class Masakan extends javax.swing.JFrame {
     private int foodID;
     private ImageIcon viewImage;
     private JFrame prev;
+    private Image backgroundPanel = null;
 }

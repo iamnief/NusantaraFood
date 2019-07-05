@@ -52,7 +52,7 @@ public class Welcome extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(661, 396));
 
         jLabel_login.setFont(new java.awt.Font("Arial", 1, 26)); // NOI18N
-        jLabel_login.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel_login.setForeground(new java.awt.Color(6, 15, 99));
         jLabel_login.setText("Login");
         jLabel_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -67,7 +67,7 @@ public class Welcome extends javax.swing.JFrame {
         });
 
         jLabel_lanjut.setFont(new java.awt.Font("Arial", 1, 26)); // NOI18N
-        jLabel_lanjut.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel_lanjut.setForeground(new java.awt.Color(6, 15, 99));
         jLabel_lanjut.setText("Lanjut");
         jLabel_lanjut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

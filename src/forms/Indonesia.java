@@ -31,7 +31,7 @@ public class Indonesia extends javax.swing.JFrame {
         island.put(new Color(247,183,51), 4);
         island.put(new Color(74,189,172), 5);
         island.put(new Color(7,136,155), 6);
-        backgroundPanel = RequestImage.requesting("src\\images\\background.jpg", 1072, 603);
+        backgroundPanel = RequestImage.requesting("src\\images\\background11.jpg", 1072, 603);
         initComponents();
     }
     /**

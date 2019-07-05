@@ -6,6 +6,7 @@
 package forms;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import nusantarafood.DatabaseUtilities;
 import nusantarafood.Makanan;
+import nusantarafood.RequestImage;
+import java.awt.Graphics;
 
 /**
  *
@@ -38,6 +41,7 @@ public class Region extends javax.swing.JFrame {
         addFoodLabels();
         initComponents();
 //        System.out.println(foodLabel.get(0).size());
+        backgroundPanel = RequestImage.requesting("src\\images\\background4.jpg",1092,676);
     }
     
     public void setPrev(JFrame prev){
@@ -125,7 +129,13 @@ public class Region extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel2.setPreferredSize(d);
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(backgroundPanel, 0, 0, this);
+            }
+        };
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         label_foodName = new javax.swing.JLabel();
@@ -273,4 +283,5 @@ public class Region extends javax.swing.JFrame {
     private Dimension d;
     private int regionID;
     private String[] island = {"Sumatera","Jawa","Kalimantan","Sulawesi","Bali dan Nusa Tenggara","Maluku dan Papua"};
+    private Image backgroundPanel = null;
 }
