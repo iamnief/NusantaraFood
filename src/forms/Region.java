@@ -13,9 +13,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import nusantarafood.DatabaseUtilities;
+import nusantarafood.Makanan;
 
 /**
  *
@@ -37,6 +39,10 @@ public class Region extends javax.swing.JFrame {
         initComponents();
 //        System.out.println(foodLabel.get(0).size());
     }
+    
+    public void setPrev(JFrame prev){
+        this. prev = prev;
+    }
 
     public void setPanel2Dim(int rows){
         int viewrow = (int) Math.ceil(rows/3);
@@ -45,10 +51,12 @@ public class Region extends javax.swing.JFrame {
 
     private void addFoodLabels(){
         foodLabel = new ArrayList<JLabel>();
-        foodID = new HashMap<JLabel,Integer>();
+        foodID = new HashMap<JLabel,Makanan>();
         try {
-            String sql = "SELECT m.id_makanan, m.gambar_makanan from makanan m, provinsi p, regional r "
-                    + "where m.id_provinsi = p.id_provinsi and p.id_regional = r.id_regional and r.id_regional = "+regionID;
+            String sql = "SELECT m.id_makanan, m.nama_makanan, p.nama_provinsi, m.gambar_makanan "
+                    + "from makanan m, provinsi p, regional r "
+                    + "where m.id_provinsi = p.id_provinsi and p.id_regional = r.id_regional "
+                    + "and r.id_regional = "+regionID;
             conn = DatabaseUtilities.getConnection();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -58,7 +66,11 @@ public class Region extends javax.swing.JFrame {
                 JLabel food = new JLabel("");
                 food.setIcon(new ImageIcon(foodPhoto));
                 foodLabel.add(food);
-                foodID.put(food,rs.getInt("id_makanan"));
+                Integer id = rs.getInt("id_makanan");
+                String name = rs.getString("nama_makanan");
+                String asal = rs.getString("nama_provinsi");
+                Makanan m = new Makanan(id, name, asal);
+                foodID.put(food,m);
                 rows++;
             }
             setPanel2Dim(rows);
@@ -73,14 +85,30 @@ public class Region extends javax.swing.JFrame {
         }
     }
     
+    private void clicked(Masakan m){
+        m.setPrev(this);
+        m.setVisible(true);
+        this.setVisible(false);
+    }
+    
     private void addFoodLabelListener(){
         for(int i=0; i<foodLabel.size(); i++){
             JLabel food = foodLabel.get(i);
+            Makanan mk = foodID.get(food);
             food.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
 //                    JOptionPane.showMessageDialog(null, foodID.get(food));
-                    dispose();
-                    new Makanan(foodID.get(food)).setVisible(true);
+//                    System.out.println(mk.getId() + mk.getNama() + mk.getAsal());
+                    Masakan m = new Masakan(mk.getId());
+                    clicked(m);
+                }
+                public void mouseEntered(java.awt.event.MouseEvent evt){
+                    label_foodName.setText(mk.getNama());
+                    label_foodProvince.setText(mk.getAsal());
+                }
+                public void mouseExited(java.awt.event.MouseEvent evt){
+                    label_foodName.setText("Nama Makanan");
+                    label_foodProvince.setText("Provinsi");
                 }
             });
         }
@@ -101,10 +129,12 @@ public class Region extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         btn_back = new javax.swing.JButton();
+        label_foodName = new javax.swing.JLabel();
+        label_foodProvince = new javax.swing.JLabel();
 
         addFoodLabelListener();
         jPanel2.setBackground(new java.awt.Color(234, 217, 171));
-        jPanel2.setLayout(new java.awt.GridLayout(0, 3, 2, 0));
+        jPanel2.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -112,6 +142,7 @@ public class Region extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(234, 217, 171));
 
         jLabel1.setFont(new java.awt.Font("Javanese Text", 0, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Papua");
 
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -122,6 +153,14 @@ public class Region extends javax.swing.JFrame {
                 btn_backActionPerformed(evt);
             }
         });
+
+        label_foodName.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        label_foodName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_foodName.setText("Makanan");
+
+        label_foodProvince.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        label_foodProvince.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_foodProvince.setText("Provinsi");
 
         jLabel1.setText(island[regionID-1]);
         for (int i=0; i<foodLabel.size(); i++){
@@ -135,22 +174,25 @@ public class Region extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 718, Short.MAX_VALUE)
-                .addComponent(btn_back))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(label_foodName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_back))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addComponent(label_foodProvince, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addComponent(btn_back))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addComponent(btn_back)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_foodName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label_foodProvince)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -216,10 +258,13 @@ public class Region extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel label_foodName;
+    private javax.swing.JLabel label_foodProvince;
     // End of variables declaration//GEN-END:variables
 
     private ArrayList<JLabel> foodLabel;
-    private HashMap<JLabel,Integer> foodID;
+    private JFrame prev;
+    private HashMap<JLabel,Makanan> foodID;
     private ImageIcon viewimage = null;
     private Dimension d;
     private int regionID;

@@ -162,8 +162,8 @@ public class LoginAdmin extends javax.swing.JFrame {
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Login success");
                 dispose();
-                new ManipulationData(this).setVisible(true);
-//                new ManipulationData().setVisible(true);
+//                new ManipulationData(this).setVisible(true);
+                new ManipulationData().setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Username or password is not correct");
             }

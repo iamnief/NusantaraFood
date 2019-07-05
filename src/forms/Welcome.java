@@ -122,7 +122,8 @@ public class Welcome extends javax.swing.JFrame {
 //        WindowEvent wce = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 //        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wce);
         dispose();
-        new LoginAdmin().setVisible(true);
+        LoginAdmin la = new LoginAdmin();
+        la.setVisible(true);
     }//GEN-LAST:event_jLabel_loginMouseClicked
 
     private void jLabel_lanjutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_lanjutMouseClicked
