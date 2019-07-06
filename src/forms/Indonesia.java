@@ -10,7 +10,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 import nusantarafood.RequestImage;
 
 /**
