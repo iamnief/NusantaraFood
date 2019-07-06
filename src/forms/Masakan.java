@@ -95,6 +95,7 @@ public class Masakan extends javax.swing.JFrame {
             }
         };
         btn_back = new javax.swing.JButton();
+        btn_back.setUI(new RoundedCornerButtonUI());
         label_foodName = new javax.swing.JLabel();
         label_foodProvince = new javax.swing.JLabel();
         label_foodImage = new javax.swing.JLabel();
@@ -111,6 +112,7 @@ public class Masakan extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(234, 217, 171));
 
+        btn_back.setForeground(new java.awt.Color(255, 255, 255));
         btn_back.setText("Back");
         btn_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

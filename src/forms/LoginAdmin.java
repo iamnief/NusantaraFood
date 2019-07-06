@@ -5,6 +5,7 @@
  */
 package forms;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Connection;
@@ -29,9 +30,11 @@ public class LoginAdmin extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+
     public LoginAdmin() {
-        initComponents();
+        rbui = new RoundedCornerButtonUI();
         backgroundPanel = RequestImage.requesting("src\\images\\test.jpg", 600, 400);
+        initComponents();
     }
     
     
@@ -55,7 +58,9 @@ public class LoginAdmin extends javax.swing.JFrame {
         };
         label_gambarwayang = new javax.swing.JLabel();
         button_login = new javax.swing.JButton();
+        button_login.setUI(rbui);
         button_cancel = new javax.swing.JButton();
+        button_cancel.setUI(rbui);
         jLabel3 = new javax.swing.JLabel();
         passwordField_password = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
@@ -69,6 +74,7 @@ public class LoginAdmin extends javax.swing.JFrame {
         label_gambarwayang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_gambarwayang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/wayangicon.png"))); // NOI18N
 
+        button_login.setForeground(new java.awt.Color(255, 255, 255));
         button_login.setText("Login");
         button_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +82,7 @@ public class LoginAdmin extends javax.swing.JFrame {
             }
         });
 
+        button_cancel.setForeground(new java.awt.Color(255, 255, 255));
         button_cancel.setText("Cancel");
         button_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,4 +235,5 @@ public class LoginAdmin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private Image backgroundPanel = null;
+    private RoundedCornerButtonUI rbui;
 }

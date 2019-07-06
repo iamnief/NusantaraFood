@@ -5,6 +5,7 @@
  */
 package forms;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import nusantarafood.RequestImage;
@@ -43,6 +44,7 @@ public class Welcome extends javax.swing.JFrame {
         };
         jLabel_login = new javax.swing.JLabel();
         jLabel_lanjut = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nusantara Food");
@@ -53,6 +55,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel_login.setFont(new java.awt.Font("Arial", 1, 26)); // NOI18N
         jLabel_login.setForeground(new java.awt.Color(6, 15, 99));
+        jLabel_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_login.setText("Login");
         jLabel_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -68,6 +71,7 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel_lanjut.setFont(new java.awt.Font("Arial", 1, 26)); // NOI18N
         jLabel_lanjut.setForeground(new java.awt.Color(6, 15, 99));
+        jLabel_lanjut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_lanjut.setText("Lanjut");
         jLabel_lanjut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -81,16 +85,23 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(6, 15, 99));
+        jLabel1.setText("Klik Lanjut untuk melihat resep makanan berdasarkan daerah");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(306, 306, 306)
-                .addComponent(jLabel_lanjut)
-                .addGap(122, 122, 122)
-                .addComponent(jLabel_login)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addGap(285, 285, 285)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel_lanjut, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +110,9 @@ public class Welcome extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_lanjut)
                     .addComponent(jLabel_login))
-                .addGap(217, 217, 217))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(197, 197, 197))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,22 +147,22 @@ public class Welcome extends javax.swing.JFrame {
 
     private void jLabel_lanjutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_lanjutMouseEntered
         // TODO add your handling code here:
-        jLabel_lanjut.setForeground(jLabel_lanjut.getForeground().brighter());
+        jLabel_lanjut.setForeground(after);
     }//GEN-LAST:event_jLabel_lanjutMouseEntered
 
     private void jLabel_lanjutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_lanjutMouseExited
         // TODO add your handling code here:
-        jLabel_lanjut.setForeground(jLabel_lanjut.getForeground().darker());
+        jLabel_lanjut.setForeground(before);
     }//GEN-LAST:event_jLabel_lanjutMouseExited
 
     private void jLabel_loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_loginMouseEntered
         // TODO add your handling code here:
-        jLabel_login.setForeground(jLabel_login.getForeground().brighter());
+        jLabel_login.setForeground(after);
     }//GEN-LAST:event_jLabel_loginMouseEntered
 
     private void jLabel_loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_loginMouseExited
         // TODO add your handling code here:
-        jLabel_login.setForeground(jLabel_login.getForeground().darker());
+        jLabel_login.setForeground(before);
     }//GEN-LAST:event_jLabel_loginMouseExited
 
     /**
@@ -188,10 +201,13 @@ public class Welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_lanjut;
     private javax.swing.JLabel jLabel_login;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     private Image backgroundPanel = null;
+    private Color before = new Color(6,15,99);
+    private Color after = new Color(58,150,147);
 }

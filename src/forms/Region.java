@@ -60,7 +60,7 @@ public class Region extends javax.swing.JFrame {
             String sql = "SELECT m.id_makanan, m.nama_makanan, p.nama_provinsi, m.gambar_makanan "
                     + "from makanan m, provinsi p, regional r "
                     + "where m.id_provinsi = p.id_provinsi and p.id_regional = r.id_regional "
-                    + "and r.id_regional = "+regionID;
+                    + "and r.id_regional = "+regionID+" order by m.id_makanan";
             conn = DatabaseUtilities.getConnection();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -141,9 +141,10 @@ public class Region extends javax.swing.JFrame {
         label_foodName = new javax.swing.JLabel();
         label_foodProvince = new javax.swing.JLabel();
         btn_back = new javax.swing.JButton();
+        btn_back.setUI(new RoundedCornerButtonUI());
 
         addFoodLabelListener();
-        jPanel2.setBackground(new java.awt.Color(234, 217, 171));
+        jPanel2.setBackground(new java.awt.Color(255, 185, 1));
         jPanel2.setLayout(new java.awt.GridLayout(0, 3, 15, 15));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -166,6 +167,7 @@ public class Region extends javax.swing.JFrame {
         label_foodProvince.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_foodProvince.setText("Provinsi");
 
+        btn_back.setForeground(new java.awt.Color(255, 255, 255));
         btn_back.setText("Back");
         btn_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

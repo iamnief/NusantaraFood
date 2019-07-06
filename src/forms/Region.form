@@ -5,7 +5,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ab" green="d9" red="ea" type="rgb"/>
+          <Color blue="1" green="b9" red="ff" type="rgb"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -143,11 +143,17 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_back">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_backActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="btn_back.setUI(new RoundedCornerButtonUI());"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
