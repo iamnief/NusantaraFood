@@ -194,7 +194,7 @@ public class ManipulationData extends javax.swing.JFrame {
 
         jLabel6.setText("ID Makanan");
 
-        textField_foodID.setEnabled(false);
+        textField_foodID.setEditable(false);
 
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Back");
