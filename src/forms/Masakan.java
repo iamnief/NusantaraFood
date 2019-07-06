@@ -129,14 +129,12 @@ public class Masakan extends javax.swing.JFrame {
         label_foodProvince.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label_foodProvince.setText("Provinsi");
 
-        textArea_bahan.setEditable(false);
         textArea_bahan.setColumns(20);
         textArea_bahan.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_bahan.setRows(5);
         textArea_bahan.setMaximumSize(new java.awt.Dimension(443, 2147483647));
         jScrollPane1.setViewportView(textArea_bahan);
 
-        textArea_caraMasak.setEditable(false);
         textArea_caraMasak.setColumns(20);
         textArea_caraMasak.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_caraMasak.setRows(5);
