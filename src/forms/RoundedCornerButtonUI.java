@@ -15,8 +15,8 @@ public class RoundedCornerButtonUI extends BasicButtonUI {
   private static final double ARC_WIDTH = 16d;
   private static final double ARC_HEIGHT = 16d;
   private static final int FOCUS_STROKE = 2;
-  private final Color fc = new Color(6,14,99);
-  private final Color rc = new Color(55,150,142);
+  private final Color rc = new Color(6,14,99);
+  private final Color fc = new Color(55,150,142);
   private final Color ac = new Color(235,150,133);
   private Shape shape;
   private Shape border;
