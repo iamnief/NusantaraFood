@@ -183,10 +183,12 @@ public class ManipulationData extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable1);
 
         textArea_steps.setColumns(20);
+        textArea_steps.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_steps.setRows(5);
         jScrollPane4.setViewportView(textArea_steps);
 
         textArea_ingredients.setColumns(20);
+        textArea_ingredients.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_ingredients.setRows(5);
         jScrollPane5.setViewportView(textArea_ingredients);
 

@@ -129,12 +129,16 @@ public class Masakan extends javax.swing.JFrame {
         label_foodProvince.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label_foodProvince.setText("Provinsi");
 
+        textArea_bahan.setEditable(false);
         textArea_bahan.setColumns(20);
+        textArea_bahan.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_bahan.setRows(5);
         textArea_bahan.setMaximumSize(new java.awt.Dimension(443, 2147483647));
         jScrollPane1.setViewportView(textArea_bahan);
 
+        textArea_caraMasak.setEditable(false);
         textArea_caraMasak.setColumns(20);
+        textArea_caraMasak.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_caraMasak.setRows(5);
         textArea_caraMasak.setMaximumSize(new java.awt.Dimension(789, 2147483647));
         jScrollPane2.setViewportView(textArea_caraMasak);
@@ -174,17 +178,17 @@ public class Masakan extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(label_foodProvince, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(label_foodImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(label_foodProvince, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(label_foodImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
