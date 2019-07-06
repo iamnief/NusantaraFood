@@ -6,6 +6,7 @@
 package forms;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,12 +32,12 @@ public class Masakan extends javax.swing.JFrame {
     ResultSet rs = null;
     
     public Masakan(int foodID) {
+        backgroundPanel = RequestImage.requesting("src\\images\\background5.jpg",889,708);
         this.foodID = foodID;
         initComponents();
         readData();
         textArea_bahan.setForeground(Color.BLACK);
         textArea_caraMasak.setForeground(Color.BLACK);
-        backgroundPanel = RequestImage.requesting("src\\images\\background5.jpg",889,708);
     }
     
     public void setPrev(JFrame prev){
@@ -130,10 +131,12 @@ public class Masakan extends javax.swing.JFrame {
 
         textArea_bahan.setColumns(20);
         textArea_bahan.setRows(5);
+        textArea_bahan.setMaximumSize(new java.awt.Dimension(443, 2147483647));
         jScrollPane1.setViewportView(textArea_bahan);
 
         textArea_caraMasak.setColumns(20);
         textArea_caraMasak.setRows(5);
+        textArea_caraMasak.setMaximumSize(new java.awt.Dimension(789, 2147483647));
         jScrollPane2.setViewportView(textArea_caraMasak);
 
         jLabel1.setFont(new java.awt.Font("Javanese Text", 1, 14)); // NOI18N
@@ -160,7 +163,10 @@ public class Masakan extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addComponent(btn_back)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
@@ -168,21 +174,18 @@ public class Masakan extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(label_foodProvince, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addComponent(label_foodProvince, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(label_foodImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(label_foodImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btn_back)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
+                .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

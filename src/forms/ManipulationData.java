@@ -383,6 +383,7 @@ public class ManipulationData extends javax.swing.JFrame {
         textArea_steps.setText("");
         label_foodImage.setIcon(null);
         comboBox_province.setSelectedIndex(-1);
+        btn_save.setEnabled(true);
     }//GEN-LAST:event_btn_clearActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
@@ -428,11 +429,11 @@ public class ManipulationData extends javax.swing.JFrame {
             int p =JOptionPane.showConfirmDialog(null, "Do you really want to delete", "Delete",JOptionPane.YES_NO_OPTION);
             if(p == 0){
                 try{
-                    String sql = "DELETE from makanan WHERE id_provinsi =?;";
+                    String sql = "DELETE from makanan WHERE id_makanan =?;";
                     pst = conn.prepareStatement(sql);
                     System.out.println("Success to create prepare");
 
-                    pst.setInt(1, comboBox_province.getSelectedIndex()+1);
+                    pst.setInt(1, Integer.parseInt(textField_foodID.getText()));
                     pst.execute();
                 }
                 catch(SQLException ex){
@@ -481,6 +482,7 @@ public class ManipulationData extends javax.swing.JFrame {
                 foodimage = imagedata;
                 viewimage = new ImageIcon(imagedata);
                 label_foodImage.setIcon(viewimage);
+                btn_save.setEnabled(false);
             }
         }
         catch (Exception e) {
