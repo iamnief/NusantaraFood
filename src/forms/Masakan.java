@@ -132,12 +132,16 @@ public class Masakan extends javax.swing.JFrame {
         textArea_bahan.setColumns(20);
         textArea_bahan.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_bahan.setRows(5);
+        textArea_bahan.setDisabledTextColor(new java.awt.Color(6, 14, 99));
+        textArea_bahan.setEnabled(false);
         textArea_bahan.setMaximumSize(new java.awt.Dimension(443, 2147483647));
         jScrollPane1.setViewportView(textArea_bahan);
 
         textArea_caraMasak.setColumns(20);
         textArea_caraMasak.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
         textArea_caraMasak.setRows(5);
+        textArea_caraMasak.setDisabledTextColor(new java.awt.Color(6, 14, 99));
+        textArea_caraMasak.setEnabled(false);
         textArea_caraMasak.setMaximumSize(new java.awt.Dimension(789, 2147483647));
         jScrollPane2.setViewportView(textArea_caraMasak);
 
