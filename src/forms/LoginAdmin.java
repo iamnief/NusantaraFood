@@ -72,7 +72,7 @@ public class LoginAdmin extends javax.swing.JFrame {
         setResizable(false);
 
         label_gambarwayang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_gambarwayang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/wayangicon.png"))); // NOI18N
+        label_gambarwayang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
 
         button_login.setForeground(new java.awt.Color(255, 255, 255));
         button_login.setText("Login");
