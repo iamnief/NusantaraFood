@@ -6,7 +6,6 @@
 package forms;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

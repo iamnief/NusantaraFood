@@ -5,7 +5,6 @@
  */
 package forms;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Connection;
@@ -15,7 +14,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import nusantarafood.DatabaseUtilities;
 import nusantarafood.RequestImage;
-//import nusantarafood.ConnectingDB;
 
 /**
  *
@@ -171,7 +169,6 @@ public class LoginAdmin extends javax.swing.JFrame {
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Login success");
                 dispose();
-//                new ManipulationData(this).setVisible(true);
                 new ManipulationData().setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Username or password is not correct");
@@ -184,7 +181,7 @@ public class LoginAdmin extends javax.swing.JFrame {
     private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
         // TODO add your handling code here:
         dispose();
-        new Welcome().setVisible(true);
+        new Indonesia().setVisible(true);
     }//GEN-LAST:event_button_cancelActionPerformed
 
     /**

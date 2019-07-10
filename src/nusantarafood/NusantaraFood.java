@@ -5,7 +5,7 @@
  */
 package nusantarafood;
 
-import forms.Welcome;
+import forms.Indonesia;
 
 /**
  *
@@ -18,7 +18,7 @@ public class NusantaraFood {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new Welcome().setVisible(true);
+        new Indonesia().setVisible(true);
     }
     
 }
